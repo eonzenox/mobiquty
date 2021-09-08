@@ -26,4 +26,8 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-##
+## Description
+
+1. To run project node.js is required. Run $npm install
+2. Run npm init
+3. ng serve
