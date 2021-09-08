@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+    background-color: #212529!Important;
+}
+.offcanvas.show {
+    background: #212529;
+    width: 100vw;
+}
+.red {
+    color: #fff;
+    background-color: #f60101!important;
+    border-color: #f60101;
+  }
+  .icon-allign {
+    font-size: 1.8rem;
+    margin-top: 0.8rem;
+    vertical-align: middle;
+    color:  #343a40;
+  }
+  .icon-allign-heading {
+    margin-right: 1rem;
+  }
+.table-custtom {
+    padding: 1.5rem 0.5rem;
+}
+td {
+
+    padding: 1.5rem 0.5rem!important;
+}
+tr .season-winner {
+    background-color: yellow!important;
+}
+.mat-dialog-container {
+  padding: 0!important;
+
+}
+.cdk-overlay-pane {
+  width: 100%!important;
+}
+.cdk-overlay-dark-backdrop {
+  background: rgb(0 0 0 / 86%);
+}

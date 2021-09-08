@@ -1,0 +1,147 @@
+<h2 mat-dialog-title>Race details</h2>
+<mat-dialog-content class="mat-typography">
+  <p>
+    Circuit name:
+    <a [href]="race.circuitUrl" target="_blank">{{ race.circuitName }}</a
+    ><mat-icon color="primary">open_in_new</mat-icon>
+  </p>
+
+  <p>
+    Race name:
+    <a [href]="race.raceUrl" target="_blank">{{ race.raceName }}</a
+    ><mat-icon color="primary">open_in_new</mat-icon>
+  </p>
+
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" #input>
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Position</th>
+      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="driver">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Driver</th>
+      <td mat-cell *matCellDef="let element">{{ element.driver }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="car">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Car</th>
+      <td mat-cell *matCellDef="let element">{{ element.car }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="fastestLap">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fastest lap</th>
+      <td mat-cell *matCellDef="let element">{{ element.fastestLap }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="averageSpeed">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Average speed</th>
+      <td mat-cell *matCellDef="let element">{{ element.averageSpeed }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
+<!-- <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header text-white">
+    <h5 id="offcanvasRightLabel">2014</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+<div class="offcanvas-body">
+  <table class="table table-dark">
+      <thead>
+        <tr  class="table-light">
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="float-end">
+    <button data-bs-dismiss="offcanvas" type="button" class="btn btn-light">Back</button>
+  </div>
+  <h2 mat-dialog-title>Race details</h2>
+<mat-dialog-content class="mat-typography">
+<p>
+  Circuit name:
+  <a [href]="race.circuitUrl" target="_blank">{{ race.circuitName }}</a
+  ><mat-icon color="primary">open_in_new</mat-icon>
+</p>
+
+<p>
+  Race name:
+  <a [href]="race.raceUrl" target="_blank">{{ race.raceName }}</a
+  ><mat-icon color="primary">open_in_new</mat-icon>
+</p>
+
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" #input>
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Position</th>
+    <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="driver">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Driver</th>
+    <td mat-cell *matCellDef="let element">{{ element.driver }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="car">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Car</th>
+    <td mat-cell *matCellDef="let element">{{ element.car }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="fastestLap">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Fastest lap</th>
+    <td mat-cell *matCellDef="let element">{{ element.fastestLap }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="averageSpeed">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Average speed</th>
+    <td mat-cell *matCellDef="let element">{{ element.averageSpeed }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+</mat-dialog-content>
+<mat-dialog-actions>
+<button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
+
+</div>
+
+</div> -->

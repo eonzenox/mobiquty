@@ -1,0 +1,95 @@
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="assets/images/f1-logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+        Formula 1 Mobiquty Assessment
+      </a>
+    </div>
+  </nav>
+  <div class="container-fluid m-0 p-0">
+    <div class="bg-image" style="
+    background-image: url('assets/images/banner2.jpg');
+    height: 230px;
+    background-position: center;
+   background-repeat: no-repeat;
+  background-size: cover;
+  "></div>
+  </div>
+<div class="container-fluid m-0 p-0">
+    
+<table class="table table-success table-bordered table-striped table-hover table-custtom ">
+    <thead>
+      <tr class="table-dark">
+        <th scope="col"><i class="fa fa-flag-checkered icon-allign-heading" aria-hidden="true"></i>Formula 1</th>
+        <th scope="col"><i class="fa fa-user-alt icon-allign-heading" aria-hidden="true"></i>Description </th>
+        <th scope="col"><i class="fa fa-calendar icon-allign-heading" aria-hidden="true"></i>Results</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let year of yearList; let i = index"
+      (click)="getSeasonByYear(year)">
+
+        <td class="text-center" scope="row"><i class="fa fa-trophy icon-allign" aria-hidden="true"></i> </td>
+        <td>F1 World Champions for {{year}}</td>
+        <td class="text-center">
+            <button (click)="getSeasonByYear(year)" class="btn btn-danger red" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Results for {{year}}</button></td>         
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div  class="offcanvas-header text-white">
+      <h5  id="offcanvasRightLabel">F1 World Champion Results</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <ng-template #isRaceLoadingBar>
+        <div class="d-flex justify-content-center">
+        <div class="spinner-border text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+    </ng-template>
+  <div class="offcanvas-body">
+   
+    <table class="table table-dark"  *ngIf="!isRaceLoading; else isRaceLoadingBar"
+   >   <thead>
+          <tr  class="table-light" >
+            <th scope="col">Season</th>
+            <th scope="col">Round</th>
+            <th scope="col">Winner</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Race</th>
+            <th scope="col">Circuit</th>
+            <th scope="col">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let race of racesList; let i = index"
+          [ngClass]="{ 'table-active visible': isRaceWinnerSeasonWinner(race) }"> 
+
+            <th scope="row">{{ race.season }}</th>
+            <td>{{race.round}}</td>
+            <td><i [ngClass]="{ 'fa fa-trophy': isRaceWinnerSeasonWinner(race) }" aria-hidden="true"></i></td>
+            <td>{{ race.winner.givenName }}</td>
+            <td>{{ race.winner.familyName }}</td>
+            <td>{{race.raceName}}</td>
+            <td>{{race.circuitName}}</td>
+            <td *ngIf="isRaceWinnerSeasonWinner(race)">
+              <button  
+                      class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop"
+                      (click)="openDriverDialog(race.winner, race.drivers[i])">Winner Details</button>  
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="float-end">
+      <button data-bs-dismiss="offcanvas" type="button" class="btn btn-light">Back</button>
+    </div>
+    
+  </div>
+
+</div>
+<div>
+</div>

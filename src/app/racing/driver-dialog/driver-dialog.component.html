@@ -1,0 +1,47 @@
+<div class="offcanvas-header">
+    <h5>{{ winner.givenName }} {{ winner.familyName }}</h5>
+    <p>
+      Wikipedia:
+      <a [href]="winner.url" target="_blank">{{ winner.url }}</a
+      ><mat-icon color="primary">open_in_new</mat-icon>
+    </p>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <ng-template #isRaceLoadingBar>
+      <div class="d-flex justify-content-center">
+      <div class="spinner-border text-danger" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+  </ng-template>
+<div class="offcanvas-body">
+ 
+  <table class="table table-dark">   <thead>
+        <tr>
+          <th scope="col">Date of birth:</th>
+          <th scope="col">Nationality:</th>
+          <th scope="col">Winner</th>
+          <th scope="col">Laps:</th>
+          <th scope="col">Time:</th>
+          <th scope="col">Fastest Lap: </th>
+          <th scope="col">Average Speed:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr > 
+          <td>{{ winner.dateOfBirth }}</td>
+          <td>{{ winner.nationality }}</td>
+          <td>{{ driver.laps }}</td>
+          <td>{{ driver.time }}</td>
+          <td>{{ driver.car }}</td>
+          <td>{{ driver.fastestLap }}</td>
+          <td>{{ driver.averageSpeed }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="float-end">
+    <button mat-dialog-close type="button" class="btn btn-dark">Back</button>
+  </div>
+</div>
+
+
